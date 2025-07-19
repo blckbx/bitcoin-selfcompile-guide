@@ -1,4 +1,4 @@
-# How to self-compile Bitcoin client (libre-relay)
+# How to self-compile Bitcoin
 
 1) Install dependencies
 
@@ -19,9 +19,8 @@ $ sudo apt install -y \
 2) Clone repository
 
 ```
-$ git clone https://github.com/petertodd/bitcoin.git libre-relay
-$ cd libre-relay
-$ git checkout libre-relay-v29.0
+$ git clone https://github.com/bitcoin/bitcoin.git
+$ git checkout v29.0
 ```
 
 3) Create build dir
@@ -62,5 +61,5 @@ $ sudo install -m 0755 -o root -g root -t /usr/local/bin/ /build/bin/*
 ```
 $ bitcoind --version
 
-> Bitcoin Core daemon version libre-relay-v29.0-2
+> Bitcoin Core daemon version v29.0.0
 ```
