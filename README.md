@@ -1,7 +1,5 @@
 # How to self-compile Bitcoin
 
-1) Install dependencies
-
 ```
 $ sudo apt install -y \
     build-essential \
@@ -15,22 +13,14 @@ $ sudo apt install -y \
     libminiupnpc-dev \
     libnatpmp-dev
 ```
-
-2) Clone repository
-
 ```
 $ git clone https://github.com/bitcoin/bitcoin.git
+$ cd bitcoin
 $ git checkout v29.0
 ```
-
-3) Create build dir
-
 ```
 $ mkdir -p build/bin
 ```
-
-4) Configure
-
 ```
 $ cmake -B build \
   -DCMAKE_INSTALL_PREFIX=/build \
@@ -43,21 +33,12 @@ $ cmake -B build \
   -DBUILD_WALLET_TOOL=ON \
   -DWITH_ZMQ=ON
 ```
-
-5) Build
-
 ```
 $ cmake --build build -j$(nproc)
 ```
-
-6) Install
-
 ```
 $ sudo install -m 0755 -o root -g root -t /usr/local/bin/ /build/bin/*
 ```
-
-7) Run
-
 ```
 $ bitcoind --version
 
