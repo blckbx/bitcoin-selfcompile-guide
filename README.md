@@ -1,7 +1,7 @@
 # How to self-compile Bitcoin
 
 ```
-$ sudo apt install -y \
+sudo apt install -y \
     build-essential \
     cmake \
     libboost-all-dev \
@@ -14,15 +14,14 @@ $ sudo apt install -y \
     libnatpmp-dev
 ```
 ```
-$ git clone https://github.com/bitcoin/bitcoin.git
-$ cd bitcoin
-$ git checkout v29.0
+git clone https://github.com/bitcoin/bitcoin.git && cd bitcoin
+git checkout v29.0
 ```
 ```
-$ mkdir -p build/bin
+mkdir -p build/bin
 ```
 ```
-$ cmake -B build \
+cmake -B build \
   -DCMAKE_INSTALL_PREFIX=/build \
   -DINSTALL_MAN=OFF \
   -DBUILD_SHARED_LIBS=OFF \
@@ -34,14 +33,13 @@ $ cmake -B build \
   -DWITH_ZMQ=ON
 ```
 ```
-$ cmake --build build -j$(nproc)
+cmake --build build -j$(nproc)
 ```
 ```
-$ strip build/bin/* (remove debug symbols, shrinks bins 80-90%)
-$ sudo install -m 0755 -o root -g root -t /usr/local/bin/ /build/bin/*
+strip build/bin/*
+sudo install -m 0755 -o root -g root -t /usr/local/bin/ /build/bin/*
 ```
 ```
-$ bitcoind --version
-
+bitcoind --version
 > Bitcoin Core daemon version v29.0.0
 ```
