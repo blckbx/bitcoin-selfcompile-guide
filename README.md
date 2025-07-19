@@ -37,6 +37,7 @@ $ cmake -B build \
 $ cmake --build build -j$(nproc)
 ```
 ```
+$ strip build/bin/* (remove debug symbols, shrinks bins 80-90%)
 $ sudo install -m 0755 -o root -g root -t /usr/local/bin/ /build/bin/*
 ```
 ```
