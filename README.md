@@ -37,7 +37,7 @@ cmake --build build -j$(nproc)
 ```
 ```
 strip build/bin/*
-sudo install -m 0755 -o root -g root -t /usr/local/bin/ /build/bin/*
+sudo install -m 0755 -o root -g root -t /usr/local/bin/ build/bin/*
 ```
 ```
 bitcoind --version
