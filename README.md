@@ -14,8 +14,14 @@ sudo apt install -y \
     libnatpmp-dev
 ```
 ```
-git clone https://github.com/bitcoin/bitcoin.git && cd bitcoin
-git checkout v29.0 && git verify-tag v29.0
+curl -s "https://api.github.com/repos/bitcoin-core/guix.sigs/contents/builder-keys" | \
+jq -r '.[].download_url' | while read url; do curl -s "$url" | gpg --import; done
+```
+```
+git clone https://github.com/bitcoin/bitcoin.git
+cd bitcoin
+git checkout v29.0
+git verify-tag v29.0
 ```
 ```
 mkdir -p build/bin
