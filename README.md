@@ -15,7 +15,7 @@ sudo apt install -y \
 ```
 ```
 git clone https://github.com/bitcoin/bitcoin.git && cd bitcoin
-git checkout v29.0
+git checkout v29.0 && git verify-tag v29.0
 ```
 ```
 mkdir -p build/bin
