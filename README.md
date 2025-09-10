@@ -38,8 +38,7 @@ cmake -B build \
   -DREDUCE_EXPORTS=ON \
   -DBUILD_UTIL=ON \
   -DBUILD_WALLET_TOOL=ON \
-  -DWITH_ZMQ=ON \
-  -DENABLE_IPC=OFF
+  -DWITH_ZMQ=ON
 ```
 ```
 cmake --build build -j$(nproc)
