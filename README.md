@@ -11,7 +11,9 @@ sudo apt install -y \
     libzmq3-dev \
     libsqlite3-dev \
     libminiupnpc-dev \
-    libnatpmp-dev
+    libnatpmp-dev \
+    libcapnp-dev \
+    capnproto
 ```
 ```
 curl -s "https://api.github.com/repos/bitcoin-core/guix.sigs/contents/builder-keys" | \
@@ -20,8 +22,8 @@ jq -r '.[].download_url' | while read url; do curl -s "$url" | gpg --import; don
 ```
 git clone https://github.com/bitcoin/bitcoin.git
 cd bitcoin
-git checkout v29.0
-git verify-tag v29.0
+git checkout v30.0
+git verify-tag v30.0
 ```
 ```
 mkdir -p build/bin
@@ -36,7 +38,8 @@ cmake -B build \
   -DREDUCE_EXPORTS=ON \
   -DBUILD_UTIL=ON \
   -DBUILD_WALLET_TOOL=ON \
-  -DWITH_ZMQ=ON
+  -DWITH_ZMQ=ON \
+  -DENABLE_IPC=OFF
 ```
 ```
 cmake --build build -j$(nproc)
@@ -47,5 +50,5 @@ sudo install -m 0755 -o root -g root -t /usr/local/bin/ build/bin/*
 ```
 ```
 bitcoind --version
-> Bitcoin Core daemon version v29.0.0
+> Bitcoin Core daemon version v30.0.0
 ```
