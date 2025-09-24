@@ -20,9 +20,11 @@ curl -s "https://api.github.com/repos/bitcoin-core/guix.sigs/contents/builder-ke
 jq -r '.[].download_url' | while read url; do curl -s "$url" | gpg --import; done
 ```
 ```
-git clone https://github.com/bitcoin/bitcoin.git
+git clone https://github.com/bitcoin/bitcoin.git && \ 
 cd bitcoin
-git checkout v30.0
+```
+```
+git checkout v30.0 && \
 git verify-tag v30.0
 ```
 ```
@@ -45,6 +47,8 @@ cmake --build build -j$(nproc)
 ```
 ```
 strip build/bin/*
+```
+```
 sudo install -m 0755 -o root -g root -t /usr/local/bin/ build/bin/*
 ```
 ```
