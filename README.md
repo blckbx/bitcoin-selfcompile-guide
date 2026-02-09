@@ -24,8 +24,8 @@ git clone https://github.com/bitcoin/bitcoin.git && \
 cd bitcoin
 ```
 ```
-git checkout v30.0 && \
-git verify-tag v30.0
+git checkout v30.2 && \
+git verify-tag v30.2
 ```
 ```
 mkdir -p build/bin
@@ -53,5 +53,5 @@ sudo install -m 0755 -o root -g root -t /usr/local/bin/ build/bin/*
 ```
 ```
 bitcoind --version
-> Bitcoin Core daemon version v30.0
+> Bitcoin Core daemon version v30.2
 ```
